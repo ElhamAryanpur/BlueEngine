@@ -1,0 +1,24 @@
+[package]
+name = "blue_engine"
+version = "0.1.0"
+authors = ["ElhamAryanpur <elhamaryanpur5@gmail.com>"]
+edition = "2018"
+
+[workspace]
+members = [
+    "blue_engine_core"
+]
+
+[dependencies]
+blue_engine_core = {path="blue_engine_core"}
+sled = "*"
+
+[dependencies.mlua]
+version = "*"
+features = ["luajit", "vendored"]
+
+[profile.release]
+lto = true
+panic = "unwind"
+opt-level = 3
+codegen-units = 1
